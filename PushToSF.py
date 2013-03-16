@@ -31,15 +31,24 @@ class PushToSF:
 	def pushToSFUsingWS(self):
 		self.log.info("In pushToSFUsingWS method")
 		from sforce.partner import SforcePartnerClient	
-		self.login = self.config.get('credentials', 'login')
-		self.password = self.config.get('credentials', 'password')
-		self.securityToken = self.config.get('credentials', 'securityToken')
-		#self.log.info("login : %s, password: %s, securityToken: %s"%(self.login, self.password, self.securityToken))
 	
 		self.login = "sf@salesfoce.com"
 		self.password = "sf-123"
 		self.securityToken = "XXXXXXXXXXX"
-		
+		safety = self.config.get('security', 'safety').strip()
+                self.log.info("Safety field : %s When safety = on use Decrypt to decode the credentials"%safety)
+                if safety == "on":
+                        self.login = self.config.get('credentials', 'login')
+                        self.password = self.config.get('credentials', 'password')
+                        self.securityToken = self.config.get('credentials', 'securityToken')
+                        self.log.info("Encrypted -> login : %s, password: %s, securityToken: %s"%(self.login, self.password, self.securityToken))
+                        self.dec = Decrypt(self.configFile)
+                        self.login = self.dec.decode(self.login)
+                        self.password = self.dec.decode(self.password)
+                        self.securityToken = self.dec.decode(self.securityToken)
+                        self.log.info("Decrypted -> login : %s, password: %s, securityToken: %s"%(self.login, self.password, self.securityToken))
+
+                self.log.info("Actual Credentials -> login : %s, password: %s, securityToken: %s"%(self.login, self.password, self.securityToken))		
 		self.client = SforcePartnerClient(self.partnerWSDL)
 		loginResponse = self.logIn(self.login, self.password, self.securityToken)
 		if loginResponse == self.FAILED:
@@ -234,7 +243,7 @@ if __name__ == "__main__":
 	push = PushToSF(configFile)	
 
 	# For SF Push using WebService
-	#response = push.pushToSFUsingWS()
+	response = push.pushToSFUsingWS()
 	# For SF Push using OAuth
-	response = push.pushToSFUsingOAuth()
+	#response = push.pushToSFUsingOAuth()
 	# print response # 0 : SF push failed and 1 : SF push successful
