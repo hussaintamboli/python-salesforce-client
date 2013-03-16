@@ -1,0 +1,12 @@
+[log]
+logFile: ./logs/logger.log.
+[wsdl]
+partnersandboxWSDL: ./lib/partnersandbox.wsdl.xml
+partnerWSDL: ./lib/partner.wsdl.xml
+[security]
+key: XXXXXX
+status: off
+[credentials]
+login: <Encrypted Login>
+password: <Encrypted Password>
+securityToken: <Encrypted Security Token>

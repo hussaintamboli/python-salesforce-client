@@ -1,0 +1,12 @@
+[db]
+dbHost: localhost
+dbUser: <XXXXXXXX>
+dbPassword: <XXXXXXX>
+DbName: sample
+[log]
+logFile: ../logs/logger.log.
+[wsdl]
+partnersandboxWSDL: ../lib/partnersandbox.wsdl.xml
+partnerWSDL: ../lib/partner.wsdl.xml
+[security]
+key: <XXXXXXX>
