@@ -5,7 +5,7 @@ partnersandboxWSDL: ./lib/partnersandbox.wsdl.xml
 partnerWSDL: ./lib/partner.wsdl.xml
 [security]
 key: XXXXXX
-status: off
+safety: off
 [credentials]
 login: <Encrypted Login>
 password: <Encrypted Password>
