@@ -127,6 +127,4 @@ if __name__ == "__main__":
 
 	# For SF Push using WebService
 	response = push.pushToSFUsingWS()
-	# For SF Push using OAuth
-	#response = push.pushToSFUsingOAuth()
 	# print response # 0 : SF push failed and 1 : SF push successful
