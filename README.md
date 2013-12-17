@@ -9,7 +9,6 @@ There are two ways to achieve this -
 
  1. **Using WebService:**
 		For WS, we chose - [salesforce-python-toolkit][1]. This toolkit uses SOAP API to make various operations like create, delete, update, upsert, etc. using WSDL files provided by Salesforce. You can see for all the possible operations on SF objects in those wsdl files. Calling a webservice with SOAP will need the actual credentials.  
-
 		You will need username, password and security token in plaintext to login to the API. But we didn't have them in plaintext format. They were encrypted using CI's Encrypt library. We wrote a module - Decrypt for doing that.
 		
 
