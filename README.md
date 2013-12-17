@@ -1,6 +1,6 @@
 
-Py-SalesforceCRUD
-=================
+Python Code to CRUD Salesforce Objects
+--------------------------------------
 
 We were exploring our ways to access, add and modify Salesforce Standard and Custom objects. We wanted to write python module so that we could do the operations from command line.
 
